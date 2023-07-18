@@ -1,0 +1,165 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.matrix-list {
+  margin: 20px;
+}
+
+.matrix {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.matrix h2 {
+  margin: 0;
+}
+
+.matrix p {
+  margin-top: 5px;
+}
+
+/*Matrices*/
+
+#matrix-sum-sub,
+#matrix-multiply,
+#matrix-transpose,
+#matrix-equations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#matrix-sum-sub div,
+#matrix-multiply div,
+#matrix-transpose div,
+#matrix-equations div {
+  margin: 10px;
+}
+
+textarea {
+  width: 200px;
+  height: 100px;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+/* Media queries para tamaños de pantalla */
+
+/* Pantallas pequeñas (móviles) */
+@media only screen and (max-width: 767px) {
+  .tab button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .tab-content {
+    padding: 10px;
+  }
+
+  .matrix-list {
+    margin: 10px;
+  }
+
+  .matrix {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .tab button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .tab-content {
+    padding: 10px;
+  }
+
+  .matrix-list {
+    margin: 10px;
+  }
+
+  .matrix {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Pantallas grandes (laptops y pantallas más grandes) */
+@media only screen and (min-width: 1024px) {
+  .tab button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .tab-content {
+    padding: 20px;
+  }
+
+  .matrix-list {
+    margin: 20px;
+  }
+
+  .matrix {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
