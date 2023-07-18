@@ -51,6 +51,7 @@ h2 {
   border-top: none;
 }
 
+/*Matrices*/
 .matrix-list {
   margin: 20px;
 }
@@ -61,16 +62,6 @@ h2 {
   padding: 10px;
   margin-bottom: 10px;
 }
-
-.matrix h2 {
-  margin: 0;
-}
-
-.matrix p {
-  margin-top: 5px;
-}
-
-/*Matrices*/
 
 #matrix-sum-sub,
 #matrix-multiply,
@@ -94,6 +85,11 @@ textarea {
   height: 100px;
 }
 
+.buttons{
+  width: 100%;
+  text-align: center;
+}
+
 button {
   padding: 5px 10px;
   font-size: 16px;
@@ -103,63 +99,15 @@ button {
 
 /* Pantallas pequeñas (móviles) */
 @media only screen and (max-width: 767px) {
-  .tab button {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
 
-  .tab-content {
-    padding: 10px;
-  }
-
-  .matrix-list {
-    margin: 10px;
-  }
-
-  .matrix {
-    padding: 8px;
-    margin-bottom: 8px;
-  }
 }
 
 /* Pantallas medianas (tablets) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .tab button {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
 
-  .tab-content {
-    padding: 10px;
-  }
-
-  .matrix-list {
-    margin: 10px;
-  }
-
-  .matrix {
-    padding: 8px;
-    margin-bottom: 8px;
-  }
 }
 
 /* Pantallas grandes (laptops y pantallas más grandes) */
 @media only screen and (min-width: 1024px) {
-  .tab button {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
 
-  .tab-content {
-    padding: 20px;
-  }
-
-  .matrix-list {
-    margin: 20px;
-  }
-
-  .matrix {
-    padding: 10px;
-    margin-bottom: 10px;
-  }
 }
