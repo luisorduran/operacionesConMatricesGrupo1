@@ -6,140 +6,183 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Operaciones con matrices</h1>
-    </header>
+    <div class="wrapper">
 
-    <div class="tab">
-      <button class="tab-button active" onclick="openTab('sumaResta')">
-        Suma y Resta
-      </button>
-      <button class="tab-button" onclick="openTab('multiplicación')">
-        Multiplicación
-      </button>
-      <button class="tab-button" onclick="openTab('traspuesta')">
-        Traspuesta
-      </button>
-      <button class="tab-button" onclick="openTab('ecuaciones')">
-        Ecuaciones
-      </button>
-    </div>
+      <header>
+        <h1>Operaciones con matrices</h1>
+      </header>
 
-    <div id="sumaResta" class="tab-content" style="display: block">
-      <div class="matrix-list">
-        <!-- Contenido de Suma y Resta -->
-        <h2>Suma y Resta de Matrices</h2>
-        <div id="matrix-sum-sub" class="matrix">
-          <div>
-            <h3>Matriz A</h3>
-            <textarea id="matrixA" rows="4" cols="10"></textarea>
+      <div class="tabs">
+         <div class="tab">
+            <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch" >
+              <label for="tab-1" class="tab-label">
+                Suma y Resta
+              </label>
+
+              <div id="sumaResta" class="tab-content" style="display: block">
+                <div class="matrix-list">
+                  <!-- Contenido de Suma y Resta -->
+                  <h2>Suma y Resta de Matrices</h2>
+                  <div id="matrix-sum-sub" class="matrix">
+                    <div>
+                      <h3>Matriz A</h3>
+                      <textarea id="matrixA" rows="4" cols="10"></textarea>
+                    </div>
+                    <div>
+                      <h3>Matriz B</h3>
+                      <textarea id="matrixB" rows="4" cols="10"></textarea>
+                    </div>
+                    <div>
+                      <h3>Resultado</h3>
+                      <textarea id="resultSumSub" rows="4" cols="10" readonly></textarea>
+                    </div>
+                    <br />
+                    <div class="buttons">
+                      <button onclick="sumMatrix()">Sumar</button>
+                      <button onclick="subtractMatrix()">Restar</button>
+                      <button onclick="limpiarCampo()">Limpiar todo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+            
           </div>
-          <div>
-            <h3>Matriz B</h3>
-            <textarea id="matrixB" rows="4" cols="10"></textarea>
+
+          <div class="tab">
+            <input type="radio" name="css-tabs" id="tab-2" checked class="tab-switch" >
+              <label for="tab-2" class="tab-label">
+                Multiplicación
+              </label>
+
+              <div id="multiplicación" class="tab-content">
+                <div class="matrix-list">
+                  <!-- Contenido de Multiplicación -->
+                  <h2>Multiplicación de Matrices</h2>
+                  <div id="matrix-multiply" class="matrix">
+                    <div>
+                      <h3>Matriz A</h3>
+                      <textarea id="matrixC" rows="4" cols="10"></textarea>
+                    </div>
+                    <div>
+                      <h3>Matriz B</h3>
+                      <textarea id="matrixD" rows="4" cols="10"></textarea>
+                    </div>
+    
+                    <div>
+                      <h3>Resultado</h3>
+                      <textarea
+                        id="resultMultiply"
+                        rows="4"
+                        cols="10"
+                        readonly
+                      ></textarea>
+                    </div>
+                    <div class="buttons">
+                      <button onclick="multiplyMatrix()">Multiplicar</button>
+                      <button onclick="limpiarCampo()">Limpiar todo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
           </div>
-          <div>
-            <h3>Resultado</h3>
-            <textarea id="resultSumSub" rows="4" cols="10" readonly></textarea>
+
+          <div class="tab">
+            <input type="radio" name="css-tabs" id="tab-4" checked class="tab-switch" >
+              <label for="tab-4" class="tab-label">
+                Transpuesta
+              </label>
+
+             <div id="traspuesta" class="tab-content">
+            <div class="matrix-list">
+              <!-- Contenido de traspuesta -->
+              <h2>Transpuesta de una Matriz</h2>
+              <div id="matrix-transpose" class="matrix">
+                <div>
+                  <h3>Matriz</h3>
+                  <textarea id="matrixE" rows="4" cols="10"></textarea>
+                </div>
+
+                <div>
+                  <h3>Resultado</h3>
+                  <textarea
+                    id="resultTranspose"
+                    rows="4"
+                    cols="10"
+                    readonly
+                  ></textarea>
+                </div>
+                <div class="buttons">
+                  <button onclick="transposeMatrix()">Transponer</button>
+                  <button onclick="limpiarCampo()">Limpiar todo</button>
+                </div>
+              </div>
+            </div>
+           </div> 
+
           </div>
-          <br />
-          <div class="buttons">
-            <button onclick="sumMatrix()">Sumar</button>
-            <button onclick="subtractMatrix()">Restar</button>
-            <button onclick="limpiarCampo()">Limpiar todo</button>
+
+          <div class="tab">
+            <input type="radio" name="css-tabs" id="tab-5" checked class="tab-switch" >
+              <label for="tab-5" class="tab-label">
+                Ecuaciones
+              </label>
+
+              <div id="ecuaciones" class="tab-content">
+            <div class="matrix-list">
+              <!-- Contenido de ecuaciones -->
+              <h2>Ecuaciones con Matrices</h2>
+              <div id="matrix-equations" class="matrix">
+                <div>
+                  <h3>Matriz A</h3>
+                  <textarea id="matrixF" rows="4" cols="10"></textarea>
+                </div>
+                <div>
+                  <h3>Vector b</h3>
+                  <textarea id="vectorB" rows="4" cols="1"></textarea>
+                </div>
+
+                <div>
+                  <h3>Resultado</h3>
+                  <textarea
+                    id="resultEquations"
+                    rows="4"
+                    cols="1"
+                    readonly
+                  ></textarea>
+                </div>
+                <div class="buttons">
+                  <button onclick="solveEquations()">Resolver</button>
+                  <button onclick="limpiarCampo()">Limpiar todo</button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          </div>
+
+
+          
+
+          
+            
+            
+
+          
+
+          
+
+          
+
+          
+          <script src="script.js"></script>
       </div>
+
+      
+  
     </div>
-
-    <div id="multiplicación" class="tab-content">
-      <div class="matrix-list">
-        <!-- Contenido de Multiplicación -->
-        <h2>Multiplicación de Matrices</h2>
-        <div id="matrix-multiply" class="matrix">
-          <div>
-            <h3>Matriz A</h3>
-            <textarea id="matrixC" rows="4" cols="10"></textarea>
-          </div>
-          <div>
-            <h3>Matriz B</h3>
-            <textarea id="matrixD" rows="4" cols="10"></textarea>
-          </div>
-
-          <div>
-            <h3>Resultado</h3>
-            <textarea
-              id="resultMultiply"
-              rows="4"
-              cols="10"
-              readonly
-            ></textarea>
-          </div>
-          <div class="buttons">
-            <button onclick="multiplyMatrix()">Multiplicar</button>
-            <button onclick="limpiarCampo()">Limpiar todo</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="traspuesta" class="tab-content">
-      <div class="matrix-list">
-        <!-- Contenido de traspuesta -->
-        <h2>Transpuesta de una Matriz</h2>
-        <div id="matrix-transpose" class="matrix">
-          <div>
-            <h3>Matriz</h3>
-            <textarea id="matrixE" rows="4" cols="10"></textarea>
-          </div>
-
-          <div>
-            <h3>Resultado</h3>
-            <textarea
-              id="resultTranspose"
-              rows="4"
-              cols="10"
-              readonly
-            ></textarea>
-          </div>
-          <div class="buttons">
-            <button onclick="transposeMatrix()">Transponer</button>
-            <button onclick="limpiarCampo()">Limpiar todo</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="ecuaciones" class="tab-content">
-      <div class="matrix-list">
-        <!-- Contenido de ecuaciones -->
-        <h2>Ecuaciones con Matrices</h2>
-        <div id="matrix-equations" class="matrix">
-          <div>
-            <h3>Matriz A</h3>
-            <textarea id="matrixF" rows="4" cols="10"></textarea>
-          </div>
-          <div>
-            <h3>Vector b</h3>
-            <textarea id="vectorB" rows="4" cols="1"></textarea>
-          </div>
-
-          <div>
-            <h3>Resultado</h3>
-            <textarea
-              id="resultEquations"
-              rows="4"
-              cols="1"
-              readonly
-            ></textarea>
-          </div>
-          <div class="buttons">
-            <button onclick="solveEquations()">Resolver</button>
-            <button onclick="limpiarCampo()">Limpiar todo</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+   </body>
+ 
 </html>

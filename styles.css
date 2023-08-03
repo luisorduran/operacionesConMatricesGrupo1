@@ -1,11 +1,7 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+
 
 header {
-  background-color: #333;
+  background-color: #1abc9c;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -20,36 +16,6 @@ h2 {
   margin-top: 30px;
 }
 
-.tab {
-  overflow: hidden;
-  background-color: #f1f1f1;
-  margin-bottom: 20px;
-}
-
-.tab button {
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  transition: background-color 0.3s;
-  font-size: 16px;
-}
-
-.tab button:hover {
-  background-color: #ddd;
-}
-
-.tab button.active {
-  background-color: #ccc;
-}
-
-.tab-content {
-  display: none;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
 
 /*Matrices*/
 .matrix-list {
@@ -110,4 +76,85 @@ button {
 /* Pantallas grandes (laptops y pantallas más grandes) */
 @media only screen and (min-width: 1024px) {
 
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  background: #2c3e50;
+  color: #ecf0f1;
+  line-height: 1.618em;
+}
+.wrapper {
+  max-width: 50rem;
+  width: 100%;
+  margin: 0 auto;
+}
+.tabs {
+  position: relative;
+  margin: 3rem 0;
+  background: #1abc9c;
+  height: 30rem;
+}
+.tabs::before,
+.tabs::after {
+  content: "";
+  display: table;
+}
+.tabs::after {
+  clear: both;
+}
+.tab {
+  float: left;
+}
+.tab-switch {
+  display: none;
+}
+.tab-label {
+  position: relative;
+  display: block;
+  line-height: 2.75em;
+  height: 3em;
+  padding: 0 1.618em;
+  background: #1abc9c;
+  border-right: 0.125rem solid #16a085;
+  color: #fff;
+  cursor: pointer;
+  top: 0;
+  transition: all 0.25s;
+  font-size: 1.1em;
+  
+}
+.tab-label:hover {
+  top: -0.25rem;
+  transition: top 0.25s;
+}
+.tab-content {
+  height: 36rem;
+  position: absolute;
+  z-index: 1;
+  top: 2.75em;
+  left: 0;
+  padding: 2.618rem;
+  background: #fff;
+  color: #2c3e50;
+  border-bottom: 0.25rem solid #bdc3c7;
+  opacity: 0;
+  transition: all 0.35s;
+}
+.tab-switch:checked + .tab-label {
+  background: #fff;
+  color: #2c3e50;
+  border-bottom: 0;
+  border-right: 0.125rem solid #fff;
+  transition: all 0.35s;
+  z-index: 1;
+  top: -0.0625rem;
+}
+.tab-switch:checked + label + .tab-content {
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.35s;
 }
