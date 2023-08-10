@@ -1,263 +1,251 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Operaciones con matrices</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="wrapper">
 
-      <header>
-        <h1>Operatix</h1>
-        <img class="logo" src="Imagenes\logo.png">
+<head>
+  <meta charset="UTF-8" />
+  <title>Operaciones con matrices</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header>
+      <h1>Operatix</h1>
+      <img class="logo" src="Imagenes\logo.png">
       </img>
-      </header>
+    </header>
 
-      <div class="tabs">
-         <div class="tab">
-            <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch" >
-              <label for="tab-1" class="tab-label">
-                Suma y Resta
-              </label>
+    <div class="tabs">
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+        <label for="tab-1" class="tab-label">
+          Suma y Resta
+        </label>
 
-              <div id="sumaResta" class="tab-content" style="display: block">
-                <div class="matrix-list">
-                  <!-- Contenido de Suma y Resta -->
-                  <h2>Suma y Resta de Matrices</h2>
-                  <div id="matrix-sum-sub" class="matrix">
-                    <div>
-                      <h3>Matriz A</h3>
-                      <textarea id="matrixA" rows="4" cols="10"></textarea>
-                    </div>
-                    <div>
-                      <h3>Matriz B</h3>
-                      <textarea id="matrixB" rows="4" cols="10"></textarea>
-                    </div>
-                    <div>
-                      <h3>Resultado</h3>
-                      <textarea id="resultSumSub" rows="4" cols="10" readonly></textarea>
-                    </div>
-                    <br />
-                    <div class="buttons">
-                      <button onclick="sumMatrix()">Sumar</button>
-                      <button onclick="subtractMatrix()">Restar</button>
-                      <button onclick="limpiarCampo()">Limpiar todo</button>
-                      <input type="checkbox" id="toggle">
-                      <label class="labelAyuda" for="toggle">Ayuda</label>
-
-                      <dialog>
-                        <p>
-
-                          Para restar y sumar matrizes primeros debes llenar las dos matrizes que quieres luego de haber llenado sus filas puedes darle al boton "Sumar" 
-                          para sumar los elementos de cada matriz  o "Restar" para restar los elementos de las dos matrizez, verás como luego se muestra la matriz nueva en 
-                          el cuadro de "resultado"<div class=""></div> 
-                        </p>
-                        <p>
-                          Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
-                        </p>
-
-
-                        <label class="labelAyuda" for="toggle">Cerrar</label>
-                      </dialog>
-                    </div>
-                  </div>
-                </div>
+        <div id="sumaResta" class="tab-content" style="display: block">
+          <div class="matrix-list">
+            <!-- Contenido de Suma y Resta -->
+            <h2>Suma y Resta de Matrices</h2>
+            <div id="matrix-sum-sub" class="matrix">
+              <div>
+                <h3>Matriz A</h3>
+                <textarea id="matrixA" rows="4" cols="10"></textarea>
               </div>
-
-
-              
-
-              
-            
-          </div>
-
-          <div class="tab">
-            <input type="radio" name="css-tabs" id="tab-2" checked class="tab-switch" >
-              <label for="tab-2" class="tab-label">
-                Multiplicación
-              </label>
-
-              <div id="multiplicación" class="tab-content">
-                <div class="matrix-list">
-                  <!-- Contenido de Multiplicación -->
-                  <h2>Multiplicación de Matrices</h2>
-                  <div id="matrix-multiply" class="matrix">
-                    <div>
-                      <h3>Matriz A</h3>
-                      <textarea id="matrixC" rows="4" cols="10"></textarea>
-                    </div>
-                    <div>
-                      <h3>Matriz B</h3>
-                      <textarea id="matrixD" rows="4" cols="10"></textarea>
-                    </div>
-    
-                    <div>
-                      <h3>Resultado</h3>
-                      <textarea
-                        id="resultMultiply"
-                        rows="4"
-                        cols="10"
-                        readonly
-                      ></textarea>
-                    </div>
-                    <div class="buttons">
-                      <button onclick="multiplyMatrix()">Multiplicar</button>
-                      <button onclick="limpiarCampo()">Limpiar todo</button>
-                      <input type="checkbox" id="toggle">
-                      <label class="labelAyuda" for="toggle">Ayuda</label>
-
-                      <dialog>
-                        <p>
-
-                          Para restar y sumar matrizes primeros debes llenar las dos matrizes que quieres luego de haber llenado sus filas puedes darle al boton "Sumar" 
-                          para sumar los elementos de cada matriz  o "Restar" para restar los elementos de las dos matrizez, verás como luego se muestra la matriz nueva en 
-                          el cuadro de "resultado"<div class=""></div> 
-                        </p>
-                        <p>
-                          Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
-                        </p>
-
-
-                        <label class="labelAyuda" for="toggle">Cerrar</label>
-                      </dialog>
-
-                    </div>
-                  </div>
-                </div>
+              <div>
+                <h3>Matriz B</h3>
+                <textarea id="matrixB" rows="4" cols="10"></textarea>
               </div>
-          
-          </div>
-
-          <div class="tab">
-            <input type="radio" name="css-tabs" id="tab-4" checked class="tab-switch" >
-              <label for="tab-4" class="tab-label">
-                Transpuesta
-              </label>
-
-             <div id="traspuesta" class="tab-content">
-            <div class="matrix-list">
-              <!-- Contenido de traspuesta -->
-              <h2>Transpuesta de una Matriz</h2>
-              <div id="matrix-transpose" class="matrix">
-                <div>
-                  <h3>Matriz</h3>
-                  <textarea id="matrixE" rows="4" cols="10"></textarea>
-                </div>
-
-                <div>
-                  <h3>Resultado</h3>
-                  <textarea
-                    id="resultTranspose"
-                    rows="4"
-                    cols="10"
-                    readonly
-                  ></textarea>
-                </div>
-                <div class="buttons">
-                  <button onclick="transposeMatrix()">Transponer</button>
-                  <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle">
-                      <label class="labelAyuda" for="toggle">Ayuda</label>
-
-                      <dialog>
-                        <p>
-
-                          Para restar y sumar matrizes primeros debes llenar las dos matrizes que quieres luego de haber llenado sus filas puedes darle al boton "Sumar" 
-                          para sumar los elementos de cada matriz  o "Restar" para restar los elementos de las dos matrizez, verás como luego se muestra la matriz nueva en 
-                          el cuadro de "resultado"<div class=""></div> 
-                        </p>
-                        <p>
-                          Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
-                        </p>
-
-
-                        <label class="labelAyuda" for="toggle">Cerrar</label>
-                      </dialog>
-                </div>
+              <div>
+                <h3>Resultado</h3>
+                <textarea id="resultSumSub" rows="4" cols="10" readonly></textarea>
               </div>
-            </div>
-           </div> 
+              <br />
+              <div class="buttons">
+                <button onclick="sumMatrix()">Sumar</button>
+                <button onclick="subtractMatrix()">Restar</button>
+                <button onclick="limpiarCampo()">Limpiar todo</button>
+                <input type="checkbox" id="toggle-1">
+                <label class="labelAyuda" for="toggle-1">Ayuda</label>
 
-          </div>
+                <dialog>
+                  <p>
 
-          <div class="tab">
-            <input type="radio" name="css-tabs" id="tab-5" checked class="tab-switch" >
-              <label for="tab-5" class="tab-label">
-                Ecuaciones
-              </label>
-
-              <div id="ecuaciones" class="tab-content">
-            <div class="matrix-list">
-              <!-- Contenido de ecuaciones -->
-              <h2>Ecuaciones con Matrices</h2>
-              <div id="matrix-equations" class="matrix">
-                <div>
-                  <h3>Matriz A</h3>
-                  <textarea id="matrixF" rows="4" cols="10"></textarea>
-                </div>
-                <div>
-                  <h3>Vector b</h3>
-                  <textarea id="vectorB" rows="4" cols="1"></textarea>
-                </div>
-
-                <div>
-                  <h3>Resultado</h3>
-                  <textarea
-                    id="resultEquations"
-                    rows="4"
-                    cols="1"
-                    readonly
-                  ></textarea>
-                </div>
-                <div class="buttons">
-                  <button onclick="solveEquations()">Resolver</button>
-                  <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle">
-                      <label class="labelAyuda" for="toggle">Ayuda</label>
-
-                      <dialog>
-                        <p>
-
-                          Para restar y sumar matrizes primeros debes llenar las dos matrizes que quieres luego de haber llenado sus filas puedes darle al boton "Sumar" 
-                          para sumar los elementos de cada matriz  o "Restar" para restar los elementos de las dos matrizez, verás como luego se muestra la matriz nueva en 
-                          el cuadro de "resultado"<div class=""></div> 
-                        </p>
-                        <p>
-                          Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
-                        </p>
+                    Para restar y sumar matrizes primeros debes llenar las dos matrizes que quieres luego de haber
+                    llenado sus filas puedes darle al boton "Sumar"
+                    para sumar los elementos de cada matriz o "Restar" para restar los elementos de las dos matrizez,
+                    verás como luego se muestra la matriz nueva en
+                    el cuadro de "resultado"
+                  <div class=""></div>
+                  </p>
+                  <p>
+                    Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
+                  </p>
 
 
-                        <label class="labelAyuda" for="toggle">Cerrar</label>
-                      </dialog>
-                </div>
+                  <label class="labelAyuda" for="toggle-1">Cerrar</label>
+                </dialog>
               </div>
             </div>
           </div>
+        </div>
 
-          </div>
 
 
-          
 
-          
-            
-            
 
-          
 
-          
-
-          
-
-          
-          <script src="script.js"></script>
-          
       </div>
 
-      
-  
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-2" checked class="tab-switch">
+        <label for="tab-2" class="tab-label">
+          Multiplicación
+        </label>
+
+        <div id="multiplicación" class="tab-content">
+          <div class="matrix-list">
+            <!-- Contenido de Multiplicación -->
+            <h2>Multiplicación de Matrices</h2>
+            <div id="matrix-multiply" class="matrix">
+              <div>
+                <h3>Matriz A</h3>
+                <textarea id="matrixC" rows="4" cols="10"></textarea>
+              </div>
+              <div>
+                <h3>Matriz B</h3>
+                <textarea id="matrixD" rows="4" cols="10"></textarea>
+              </div>
+
+              <div>
+                <h3>Resultado</h3>
+                <textarea id="resultMultiply" rows="4" cols="10" readonly></textarea>
+              </div>
+              <div class="buttons">
+                <button onclick="multiplyMatrix()">Multiplicar</button>
+                <button onclick="limpiarCampo()">Limpiar todo</button>
+                <input type="checkbox" id="toggle-2">
+                <label class="labelAyuda" for="toggle-2">Ayuda</label>
+
+                <dialog>
+                  <p>
+
+                    Para Multiplicar
+                    
+                  <div class=""></div>
+                  </p>
+                  <p>
+                    Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
+                  </p>
+
+
+                  <label class="labelAyuda" for="toggle-2">Cerrar</label>
+                </dialog>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-4" checked class="tab-switch">
+        <label for="tab-4" class="tab-label">
+          Transpuesta
+        </label>
+
+        <div id="traspuesta" class="tab-content">
+          <div class="matrix-list">
+            <!-- Contenido de traspuesta -->
+            <h2>Transpuesta de una Matriz</h2>
+            <div id="matrix-transpose" class="matrix">
+              <div>
+                <h3>Matriz</h3>
+                <textarea id="matrixE" rows="4" cols="10"></textarea>
+              </div>
+
+              <div>
+                <h3>Resultado</h3>
+                <textarea id="resultTranspose" rows="4" cols="10" readonly></textarea>
+              </div>
+              <div class="buttons">
+                <button onclick="transposeMatrix()">Transponer</button>
+                <button onclick="limpiarCampo()">Limpiar todo</button>
+                <input type="checkbox" id="toggle-3">
+                <label class="labelAyuda" for="toggle-3">Ayuda</label>
+
+                <dialog>
+                  <p>
+
+                    Para sacar la transpuesta
+                  <div class=""></div>
+                  </p>
+                  <p>
+                    Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
+                  </p>
+
+
+                  <label class="labelAyuda" for="toggle-3">Cerrar</label>
+                </dialog>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab">
+        <input type="radio" name="css-tabs" id="tab-5" checked class="tab-switch">
+        <label for="tab-5" class="tab-label">
+          Ecuaciones
+        </label>
+
+        <div id="ecuaciones" class="tab-content">
+          <div class="matrix-list">
+            <!-- Contenido de ecuaciones -->
+            <h2>Ecuaciones con Matrices</h2>
+            <div id="matrix-equations" class="matrix">
+              <div>
+                <h3>Matriz A</h3>
+                <textarea id="matrixF" rows="4" cols="10"></textarea>
+              </div>
+              <div>
+                <h3>Vector b</h3>
+                <textarea id="vectorB" rows="4" cols="1"></textarea>
+              </div>
+
+              <div>
+                <h3>Resultado</h3>
+                <textarea id="resultEquations" rows="4" cols="1" readonly></textarea>
+              </div>
+              <div class="buttons">
+                <button onclick="solveEquations()">Resolver</button>
+                <button onclick="limpiarCampo()">Limpiar todo</button>
+                <input type="checkbox" id="toggle-4">
+                <label class="labelAyuda" for="toggle-4">Ayuda</label>
+
+                <dialog>
+                  <p>
+
+                    Para sacar una ecuacion
+                  <div class=""></div>
+                  </p>
+                  <p>
+                    Si quieres borrar todo y empezar de nuevo dale al boton de "Limpiar Todo"
+                  </p>
+
+
+                  <label class="labelAyuda" for="toggle-4">Cerrar</label>
+                </dialog>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script src="script.js"></script>
+
     </div>
-   </body>
- 
+
+
+
+  </div>
+</body>
+
 </html>
