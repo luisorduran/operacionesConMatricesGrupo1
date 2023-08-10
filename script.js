@@ -175,30 +175,59 @@ function transposeMatrix() {
 }
 
 // Función para resolver un sistema de ecuaciones lineales
-function solveEquations() {
-  // Obtener las cadenas de la matriz y el vector de entrada desde los elementos de la página HTML
-  const matrixFStr = document.getElementById("matrixF").value;
-  const vectorBStr = document.getElementById("vectorB").value;
+document.addEventListener("DOMContentLoaded", function() {
+  const calculateButton = document.getElementById("resolverEcuacion");
+  const matrixAInput = document.getElementById("matrixF");
+  const matrixBInput = document.getElementById("matrixG");
+  const outputResult = document.getElementById("resultEquations");
 
-  // Convertir las cadenas en matrices numéricas utilizando la función parseMatrix
-  const matrixF = parseMatrix(matrixFStr);
-  const vectorB = parseMatrix(vectorBStr);
+  calculateButton.addEventListener("click", function() {
+      const matrixAText = matrixAInput.value.trim();
+      const matrixBText = matrixBInput.value.trim();
 
-  // Verificar si el número de ecuaciones es igual al número de filas de la matriz
-  if (matrixF.length !== vectorB.length) {
-    alert(
-      "El número de ecuaciones en el sistema debe ser igual al número de filas de la matriz."
-    );
-    return;
+      if (matrixAText === "" || matrixBText === "") {
+          outputResult.value = "Ingrese matrices válidas.";
+          return;
+      }
+
+      try {
+          const result = solveMatrixEquations(matrixAText, matrixBText);
+          outputResult.value = `${result}`;
+      } catch (error) {
+          outputResult.value = "Error: " + error.message;
+      }
+  });
+
+  function solveMatrixEquations(matrixAText, matrixBText) {
+      const matrixA = parseMatrix(matrixAText);
+      const matrixB = parseMatrix(matrixBText);
+
+      if (matrixA.length !== matrixB.length) {
+          throw new Error("Las matrices deben tener el mismo número de filas.");
+      }
+
+      // Aquí puedes usar la función 'math.lusolve' de 'math.js' para resolver el sistema de ecuaciones lineales.
+      const solution = math.lusolve(matrixA, matrixB);
+
+      // Crear el string de resultados con incógnitas
+      const resultString = solution.map((value, index) => {
+          const variable = String.fromCharCode(120 + index); // 'x', 'y', 'z'
+          return `${variable} = ${Math.round(value[0])}`;
+      }).join("\n");
+
+      return resultString;
   }
 
-  // Crear una matriz de resultados y combinar los coeficientes con las incógnitas y el término independiente
-  const resultMatrix = [];
-  for (let i = 0; i < matrixF.length; i++) {
-    const equation = matrixF[i].join("x") + " = " + vectorB[i][0];
-    resultMatrix.push(equation);
-  }
+  function parseMatrix(matrixText) {
+      const rowsData = matrixText.split("\n").map(row => row.trim().split(/\s+/).map(Number));
 
-  // Actualizar el valor del elemento de la página HTML con las ecuaciones resultantes formateadas
-  document.getElementById("resultEquations").value = resultMatrix.join("\n");
-}
+      const numRows = rowsData.length;
+      const numCols = rowsData[0].length;
+
+      if (numRows > 3 || numCols > 3) {
+          throw new Error("Las matrices deben ser de tamaño 3x3 o menos.");
+      }
+
+      return rowsData;
+  }
+});
