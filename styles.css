@@ -19,13 +19,15 @@ footer {
   background-color: #1abc9c;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
+
 }
 
 h1 {
   display: block;
   margin: 0;
   text-align: center;
+  font: italic small-caps bold 30px/2 cursive;
 }
 
 h2 {
@@ -304,7 +306,7 @@ body {
 dialog{
   animation: appear 350ms ease-in 1;
   max-width: 500px;
-  margin-top: -20rem;
+  margin-top: -30rem;
   border: 5px solid #16a085 ;
   border-radius: 50px;
 }
