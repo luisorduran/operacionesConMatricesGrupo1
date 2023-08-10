@@ -1,26 +1,26 @@
 //Funcion para mostrar la pestaña que se seleccione
 function openTab(tabName) {
   var i, tabContent, tabButton;
-  
+
   // Obtener todos los elementos con la clase "tab-content"
   tabContent = document.getElementsByClassName("tab-content");
-  
+
   // Ocultar los contenidos de todas las pestañas
   for (i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
   }
-  
+
   // Obtener todos los elementos con la clase "tab-button"
   tabButton = document.getElementsByClassName("tab-button");
-  
+
   // Eliminar la clase "active" de todos los botones de pestaña
   for (i = 0; i < tabButton.length; i++) {
     tabButton[i].className = tabButton[i].className.replace(" active", "");
   }
-  
+
   // Mostrar el contenido de la pestaña seleccionada
   document.getElementById(tabName).style.display = "block";
-  
+
   // Agregar la clase "active" al botón de pestaña actual
   event.currentTarget.className += " active";
 }
@@ -34,14 +34,24 @@ function limpiarCampo() {
 }
 
 // Logica de operaciones
+function ValidaSoloNumeros(event) {
+  const keyCode = event.keyCode || event.which;
 
+  // Permitir números (0-9), tecla espacio (32), tecla enter (13) y teclas direccionales (37-40)
+  if (
+    (keyCode >= 48 && keyCode <= 57) || // Números del 0 al 9
+    keyCode === 32 || // Tecla espacio
+    keyCode === 13 || // Tecla enter
+    (keyCode >= 37 && keyCode <= 40) // Teclas direccionales (izquierda, arriba, derecha, abajo)
+  ) {
+    return true; // Permitir la tecla
+  } else {
+    return false; // Prevenir la tecla
+  }
+}
 
 // Funcion para validar que solo haya numeros
-/*function ValidaSoloNumeros() {
-  if ((event.keyCode < 48) || (event.keyCode > 57)) 
-   event.returnValue = false;
-  
- }*/
+
 
 // Función para convertir una cadena de texto en una matriz numérica
 function parseMatrix(matrixStr) {
