@@ -34,12 +34,14 @@ function limpiarCampo() {
 }
 
 // Logica de operaciones
+
+
 // Funcion para validar que solo haya numeros
-function ValidaSoloNumeros() {
-  if ((event.keyCode < 48) || (event.keyCode > 57) && (event.keyCode != 32)) 
+/*function ValidaSoloNumeros() {
+  if ((event.keyCode < 48) || (event.keyCode > 57)) 
    event.returnValue = false;
   
- }
+ }*/
 
 // Función para convertir una cadena de texto en una matriz numérica
 function parseMatrix(matrixStr) {
