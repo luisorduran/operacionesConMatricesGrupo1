@@ -1,26 +1,26 @@
 //Funcion para mostrar la pestaña que se seleccione
 function openTab(tabName) {
   var i, tabContent, tabButton;
-  
+
   // Obtener todos los elementos con la clase "tab-content"
   tabContent = document.getElementsByClassName("tab-content");
-  
+
   // Ocultar los contenidos de todas las pestañas
   for (i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
   }
-  
+
   // Obtener todos los elementos con la clase "tab-button"
   tabButton = document.getElementsByClassName("tab-button");
-  
+
   // Eliminar la clase "active" de todos los botones de pestaña
   for (i = 0; i < tabButton.length; i++) {
     tabButton[i].className = tabButton[i].className.replace(" active", "");
   }
-  
+
   // Mostrar el contenido de la pestaña seleccionada
   document.getElementById(tabName).style.display = "block";
-  
+
   // Agregar la clase "active" al botón de pestaña actual
   event.currentTarget.className += " active";
 }
@@ -34,6 +34,24 @@ function limpiarCampo() {
 }
 
 // Logica de operaciones
+function ValidaSoloNumeros(event) {
+  const keyCode = event.keyCode || event.which;
+
+  // Permitir números (0-9), tecla espacio (32), tecla enter (13) y teclas direccionales (37-40)
+  if (
+    (keyCode >= 48 && keyCode <= 57) || // Números del 0 al 9
+    keyCode === 32 || // Tecla espacio
+    keyCode === 13 || // Tecla enter
+    (keyCode >= 37 && keyCode <= 40) // Teclas direccionales (izquierda, arriba, derecha, abajo)
+  ) {
+    return true; // Permitir la tecla
+  } else {
+    return false; // Prevenir la tecla
+  }
+}
+
+// Funcion para validar que solo haya numeros
+
 
 // Función para convertir una cadena de texto en una matriz numérica
 function parseMatrix(matrixStr) {
@@ -157,30 +175,59 @@ function transposeMatrix() {
 }
 
 // Función para resolver un sistema de ecuaciones lineales
-function solveEquations() {
-  // Obtener las cadenas de la matriz y el vector de entrada desde los elementos de la página HTML
-  const matrixFStr = document.getElementById("matrixF").value;
-  const vectorBStr = document.getElementById("vectorB").value;
+document.addEventListener("DOMContentLoaded", function() {
+  const calculateButton = document.getElementById("resolverEcuacion");
+  const matrixAInput = document.getElementById("matrixF");
+  const matrixBInput = document.getElementById("matrixG");
+  const outputResult = document.getElementById("resultEquations");
 
-  // Convertir las cadenas en matrices numéricas utilizando la función parseMatrix
-  const matrixF = parseMatrix(matrixFStr);
-  const vectorB = parseMatrix(vectorBStr);
+  calculateButton.addEventListener("click", function() {
+      const matrixAText = matrixAInput.value.trim();
+      const matrixBText = matrixBInput.value.trim();
 
-  // Verificar si el número de ecuaciones es igual al número de filas de la matriz
-  if (matrixF.length !== vectorB.length) {
-    alert(
-      "El número de ecuaciones en el sistema debe ser igual al número de filas de la matriz."
-    );
-    return;
+      if (matrixAText === "" || matrixBText === "") {
+          outputResult.value = "Ingrese matrices válidas.";
+          return;
+      }
+
+      try {
+          const result = solveMatrixEquations(matrixAText, matrixBText);
+          outputResult.value = `${result}`;
+      } catch (error) {
+          outputResult.value = "Error: " + error.message;
+      }
+  });
+
+  function solveMatrixEquations(matrixAText, matrixBText) {
+      const matrixA = parseMatrix(matrixAText);
+      const matrixB = parseMatrix(matrixBText);
+
+      if (matrixA.length !== matrixB.length) {
+          throw new Error("Las matrices deben tener el mismo número de filas.");
+      }
+
+      // Aquí puedes usar la función 'math.lusolve' de 'math.js' para resolver el sistema de ecuaciones lineales.
+      const solution = math.lusolve(matrixA, matrixB);
+
+      // Crear el string de resultados con incógnitas
+      const resultString = solution.map((value, index) => {
+          const variable = String.fromCharCode(120 + index); // 'x', 'y', 'z'
+          return `${variable} = ${Math.round(value[0])}`;
+      }).join("\n");
+
+      return resultString;
   }
 
-  // Crear una matriz de resultados y combinar los coeficientes con las incógnitas y el término independiente
-  const resultMatrix = [];
-  for (let i = 0; i < matrixF.length; i++) {
-    const equation = matrixF[i].join("x") + " = " + vectorB[i][0];
-    resultMatrix.push(equation);
-  }
+  function parseMatrix(matrixText) {
+      const rowsData = matrixText.split("\n").map(row => row.trim().split(/\s+/).map(Number));
 
-  // Actualizar el valor del elemento de la página HTML con las ecuaciones resultantes formateadas
-  document.getElementById("resultEquations").value = resultMatrix.join("\n");
-}
+      const numRows = rowsData.length;
+      const numCols = rowsData[0].length;
+
+      if (numRows > 3 || numCols > 3) {
+          throw new Error("Las matrices deben ser de tamaño 3x3 o menos.");
+      }
+
+      return rowsData;
+  }
+});
