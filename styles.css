@@ -1,5 +1,15 @@
-header {
+* {
+  box-sizing: border-box;
+}
 
+body {
+  font-family: "Open Sans";
+  background: #2c3e50;
+  color: #ecf0f1;
+  line-height: 1.618em;
+}
+
+header {
   background-color: #1abc9c;
   color: #fff;
   padding: 20px;
@@ -18,7 +28,6 @@ footer {
   color: white;
   text-align: center;
   padding: 10px;
-
 }
 
 h1 {
@@ -50,10 +59,8 @@ p {
 }
 
 .gifAyuda {
-
   background-position: center;
   height: 200px;
-
 }
 
 /*Matrices*/
@@ -91,20 +98,15 @@ textarea {
   border: 3px solid#16a085;
   border-radius: 3px;
 }
-.resultadoOperacion{
-  
-  
+.resultadoOperacion {
   text-align: center;
-
 }
 
-.inputOperacion{
-
+.inputOperacion {
   width: 75px;
-  
+
   border: 3px solid#16a085;
   border-radius: 3px;
-
 }
 
 .matrizincognita {
@@ -112,30 +114,11 @@ textarea {
   height: 100px;
   border: 3px solid#16a085;
   border-radius: 3px;
-
 }
 
 .buttons {
   width: 100%;
   text-align: center;
-
-}
-
-/* CSS */
-
-
-
-
-
-button:hover {
-  background-color: #16a085;
-  color: white;
-}
-
-button:active {
-  background-color: #16a085;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }
 
 button {
@@ -153,67 +136,15 @@ button {
   font: italic small-caps bold 16px/2 cursive;
 }
 
-
-
-
-/* Media queries para tamaños de pantalla */
-
-/* Pantallas pequeñas (móviles) */
-@media only screen and (max-width: 767px) {}
-
-/* Pantallas medianas (tablets) */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {}
-
-/* Pantallas grandes (laptops y pantallas más grandes) */
-@media only screen and (min-width: 1024px) {}
-
-@media screen and (max-width: 600px) {
-  footer {
-    display: none;
-  }
+button:hover {
+  background-color: #16a085;
+  color: white;
 }
 
-@media screen and (max-width: 600px) {
-  header {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 670px) {
-  .tab-label {
-    width: 100px;
-    
-    text-align: left;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .tab-label {
-    width: 50px;
-
-
-  }
-}
-
-@media screen and (max-width: 599px) {
-  .tab-content {
-    height: 55rem;
-  }
-}
-
-
-
-
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Open Sans";
-  background: #2c3e50;
-  color: #ecf0f1;
-  line-height: 1.618em;
+button:active {
+  background-color: #16a085;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .wrapper {
@@ -223,10 +154,12 @@ body {
 }
 
 .tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   margin: 3rem 0;
   background: #1abc9c;
-  height: 30rem;
 }
 
 .tabs::before,
@@ -261,7 +194,6 @@ body {
   transition: all 0.25s;
   font-size: 1.1em;
   font: italic small-caps bold 16px/2 cursive;
-
 }
 
 .tab-label:hover {
@@ -283,7 +215,7 @@ body {
   transition: all 0.35s;
 }
 
-.tab-switch:checked+.tab-label {
+.tab-switch:checked + .tab-label {
   background: #fff;
   color: #2c3e50;
   border-bottom: 0;
@@ -293,7 +225,7 @@ body {
   top: -0.0625rem;
 }
 
-.tab-switch:checked+label+.tab-content {
+.tab-switch:checked + label + .tab-content {
   z-index: 2;
   opacity: 1;
   transition: all 0.35s;
@@ -306,7 +238,7 @@ body {
   z-index: -1;
 }
 
-#toggle-1:checked~dialog {
+#toggle-1:checked ~ dialog {
   display: block;
 }
 
@@ -317,7 +249,7 @@ body {
   z-index: -1;
 }
 
-#toggle-2:checked~dialog {
+#toggle-2:checked ~ dialog {
   display: block;
 }
 
@@ -328,7 +260,7 @@ body {
   z-index: -1;
 }
 
-#toggle-3:checked~dialog {
+#toggle-3:checked ~ dialog {
   display: block;
 }
 
@@ -339,7 +271,7 @@ body {
   z-index: -1;
 }
 
-#toggle-4:checked~dialog {
+#toggle-4:checked ~ dialog {
   display: block;
 }
 
@@ -356,8 +288,6 @@ body {
   cursor: pointer;
   background-color: #bdc3c7;
   font: italic small-caps bold 16px/2 cursive;
-
-
 }
 
 .labelAyuda:hover {
@@ -379,11 +309,89 @@ body {
 }
 
 dialog {
-
   animation: appear 350ms ease-in 1;
 
   max-width: 800px;
   margin-top: -35rem;
   border: 5px solid #16a085;
   border-radius: 50px;
+}
+
+/* CSS de la sección de ayuda */
+.section {
+  margin: 20px;
+}
+
+.step {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.column {
+  width: calc(25% - 20px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.column img {
+  max-width: 100%;
+}
+
+.column h3 {
+  margin-top: 10px;
+}
+
+.column p {
+  margin-top: 5px;
+}
+
+/* Media queries para tamaños de pantalla */
+
+/* Pantallas pequeñas (móviles) */
+@media only screen and (max-width: 767px) {
+}
+
+/* Pantallas medianas (tablets) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Pantallas grandes (laptops y pantallas más grandes) */
+@media only screen and (min-width: 1024px) {
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .tab-label {
+    width: 100px;
+
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .tab-label {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .tab-content {
+    height: 55rem;
+  }
 }
