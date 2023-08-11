@@ -407,29 +407,3 @@ dialog {
     width: calc(100% - 30px);
   }
 }
-
-/* @media screen and (max-width: 600px) {
-  header {
-    display: none;
-  }
-} */
-
-/* @media screen and (max-width: 670px) {
-  .tab-label {
-    width: 100px;
-
-    text-align: left;
-  }
-} */
-
-/* @media screen and (max-width: 420px) {
-  .tab-label {
-    width: 50px;
-  }
-}
-
-@media screen and (max-width: 599px) {
-  .tab-content {
-    height: 55rem;
-  }
-} */
