@@ -415,18 +415,13 @@
                   ></textarea>
                 </div>
                 <div>
-                  <h3>Operacion</h3>
-                  <input type="text" id="operacion" /><br />
+                  <h3>Operación</h3>
+                  <input class="inputOperacion" type="text" id="operacion" /><br />
                 </div>
 
                 <div>
                   <h3>Resultado</h3>
-                  <textarea
-                    id="resultado"
-                    rows="4"
-                    cols="1"
-                    readonly
-                  ></textarea>
+                  <div class="resultadoOperacion" id="resultado"></div>
                 </div>
                 <div class="buttons">
                   <button onclick="calcular()">Operar</button>
@@ -525,6 +520,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+    
   </body>
 </html>
