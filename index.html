@@ -203,15 +203,19 @@
               </div>
               <div>
                 <h3>Matriz B</h3>
-                <textarea class="matrizincognita" id="matrixG" rows="4" cols="1" onkeypress="return ValidaSoloNumeros(event)"></textarea>
+                <textarea id="matrixG" rows="4" cols="1" onkeypress="return ValidaSoloNumeros(event)"></textarea>
+              </div>
+              <div>
+                <h3>Operacion</h3>
+                <input type="text" id="operacion"><br>
               </div>
 
               <div>
                 <h3>Resultado</h3>
-                <textarea id="resultEquations" rows="4" cols="1" readonly></textarea>
+                <textarea id="resultado" rows="4" cols="1" readonly></textarea>
               </div>
               <div class="buttons">
-                <button id="resolverEcuacion">Calcular</button>
+                <button onclick="calcular()">Operar</button>
                 <button onclick="limpiarCampo()">Limpiar todo</button>
                 <input type="checkbox" id="toggle-4">
                 <label class="labelAyuda" for="toggle-4">Ayuda</label>
