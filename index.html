@@ -10,7 +10,7 @@
     <div class="wrapper">
       <header>
         <h1>Operatix</h1>
-        <img class="logo" src="Imagenes\logo.png" />
+        <img class="logo" src="images/logo.png" />
       </header>
 
       <div class="tabs">
@@ -67,7 +67,7 @@
                   <dialog>
                     <img
                       class="gifAyuda"
-                      src="Imagenes\retor_escolares_movimientoboca_largo.gif"
+                      src="images/retor_escolares_movimientoboca_largo.gif"
                       loop="infinite"
                     />
                     <p>
@@ -92,13 +92,7 @@
         </div>
 
         <div class="tab">
-          <input
-            type="radio"
-            name="css-tabs"
-            id="tab-2"
-            checked
-            class="tab-switch"
-          />
+          <input type="radio" name="css-tabs" id="tab-2" class="tab-switch" />
           <label for="tab-2" class="tab-label"> Multiplicación </label>
 
           <div id="multiplicación" class="tab-content">
@@ -143,7 +137,7 @@
                   <dialog>
                     <img
                       class="gifAyuda"
-                      src="Imagenes\retor_escolares_movimientoboca_largo.gif"
+                      src="images/retor_escolares_movimientoboca_largo.gif"
                     />
                     <p>
                       Para Multiplicar solo debes llenar las dos matrices que
@@ -166,14 +160,8 @@
         </div>
 
         <div class="tab">
-          <input
-            type="radio"
-            name="css-tabs"
-            id="tab-4"
-            checked
-            class="tab-switch"
-          />
-          <label for="tab-4" class="tab-label"> Transpuesta </label>
+          <input type="radio" name="css-tabs" id="tab-3" class="tab-switch" />
+          <label for="tab-3" class="tab-label"> Transpuesta </label>
 
           <div id="traspuesta" class="tab-content">
             <div class="matrix-list">
@@ -208,7 +196,7 @@
                   <dialog>
                     <img
                       class="gifAyuda"
-                      src="Imagenes\retor_escolares_movimientoboca_largo.gif"
+                      src="images/retor_escolares_movimientoboca_largo.gif"
                     />
                     <p>
                       Para sacar la transpuesta de una matriz solo llena la
@@ -231,14 +219,8 @@
         </div>
 
         <div class="tab">
-          <input
-            type="radio"
-            name="css-tabs"
-            id="tab-5"
-            checked
-            class="tab-switch"
-          />
-          <label for="tab-5" class="tab-label"> Ecuaciones </label>
+          <input type="radio" name="css-tabs" id="tab-4" class="tab-switch" />
+          <label for="tab-4" class="tab-label"> Ecuaciones </label>
 
           <div id="ecuaciones" class="tab-content">
             <div class="matrix-list">
@@ -286,14 +268,10 @@
                   <dialog>
                     <img
                       class="gifAyuda"
-                      src="Imagenes\retor_escolares_movimientoboca_largo.gif"
+                      src="images/retor_escolares_movimientoboca_largo.gif"
                     />
-                    <p>Para sacar una ecuacion</p>
-                    <p>
-                      Si quieres borrar todo y empezar de nuevo dale al boton de
-                      "Limpiar Todo"
-                    </p>
-
+                    <p>MANUAL DE SECCION</p>
+                    <div>Manual</div>
                     <label class="labelAyuda" for="toggle-4">Cerrar</label>
                   </dialog>
                 </div>
@@ -302,12 +280,26 @@
           </div>
         </div>
 
-        <script src="script.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+        <div class="tab">
+          <input
+            type="button"
+            name="css-tabs"
+            id="tab-5"
+            class="tab-switch"
+            onclick="window.open('./manual.html', '_blank');"
+          />
+
+          <!-- <input type="button" value="Ir" > -->
+
+          <label for="tab-5" class="tab-label"> Manual </label>
+        </div>
       </div>
     </div>
     <footer>
       <h1>Gracias por usar nuestra Web!!!</h1>
     </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
   </body>
 </html>
