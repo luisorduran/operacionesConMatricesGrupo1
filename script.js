@@ -174,60 +174,66 @@ function transposeMatrix() {
   document.getElementById("resultTranspose").value = formatMatrix(resultMatrix);
 }
 
-// Función para resolver un sistema de ecuaciones lineales
-document.addEventListener("DOMContentLoaded", function() {
-  const calculateButton = document.getElementById("resolverEcuacion");
-  const matrixAInput = document.getElementById("matrixF");
-  const matrixBInput = document.getElementById("matrixG");
-  const outputResult = document.getElementById("resultEquations");
+// Función para resolver de ecuaciones con matrices
 
-  calculateButton.addEventListener("click", function() {
-      const matrixAText = matrixAInput.value.trim();
-      const matrixBText = matrixBInput.value.trim();
-
-      if (matrixAText === "" || matrixBText === "") {
-          outputResult.value = "Ingrese matrices válidas.";
-          return;
-      }
-
-      try {
-          const result = solveMatrixEquations(matrixAText, matrixBText);
-          outputResult.value = `${result}`;
-      } catch (error) {
-          outputResult.value = "Error: " + error.message;
-      }
-  });
-
-  function solveMatrixEquations(matrixAText, matrixBText) {
-      const matrixA = parseMatrix(matrixAText);
-      const matrixB = parseMatrix(matrixBText);
-
-      if (matrixA.length !== matrixB.length) {
-          throw new Error("Las matrices deben tener el mismo número de filas.");
-      }
-
-      // Aquí puedes usar la función 'math.lusolve' de 'math.js' para resolver el sistema de ecuaciones lineales.
-      const solution = math.lusolve(matrixA, matrixB);
-
-      // Crear el string de resultados con incógnitas
-      const resultString = solution.map((value, index) => {
-          const variable = String.fromCharCode(120 + index); // 'x', 'y', 'z'
-          return `${variable} = ${Math.round(value[0])}`;
-      }).join("\n");
-
-      return resultString;
+function calcular() {
+  // Obtener los valores de las matrices y la operación
+  var matrizA = document.getElementById("matrixF").value;
+  var matrizB = document.getElementById("matrixG").value;
+  var operacion = document.getElementById("operacion").value;
+  // Convertir las matrices en arreglos bidimensionales de números
+  var arregloA = matrizA.split("\n").map(fila => fila.split(" ").map(num => parseFloat(num)));
+  var arregloB = matrizB.split("\n").map(fila => fila.split(" ").map(num => parseFloat(num)));
+  // Validar que las matrices tengan el mismo tamaño y que la operación sea válida
+  if (arregloA.length != arregloB.length || arregloA[0].length != arregloB[0].length) {
+      alert("Las matrices deben tener el mismo tamaño");
+      return;
   }
-
-  function parseMatrix(matrixText) {
-      const rowsData = matrixText.split("\n").map(row => row.trim().split(/\s+/).map(Number));
-
-      const numRows = rowsData.length;
-      const numCols = rowsData[0].length;
-
-      if (numRows > 3 || numCols > 3) {
-          throw new Error("Las matrices deben ser de tamaño 3x3 o menos.");
-      }
-
-      return rowsData;
+  if (!operacion.match(/^[0-9]*\*?\(?(A|B)(\+|\-)(A|B)\)?$/)) {
+      alert("La operación debe tener el formato n*(A+B) o n*(A-B) o A+B o A-B");
+      return;
   }
-});
+  // Realizar el cálculo según la operación
+  var resultado = [];
+  for (var i = 0; i < arregloA.length; i++) {
+      resultado[i] = [];
+      for (var j = 0; j < arregloA[0].length; j++) {
+          switch (operacion) {
+              case "A+B":
+                  resultado[i][j] = arregloA[i][j] + arregloB[i][j];
+                  break;
+              case "A-B":
+                  resultado[i][j] = arregloA[i][j] - arregloB[i][j];
+                  break;
+              case "B+A":
+                  resultado[i][j] = arregloB[i][j] + arregloA[i][j];
+                  break;
+              case "B-A":
+                  resultado[i][j] = arregloB[i][j] - arregloA[i][j];
+                  break;
+              default:
+                  // Extraer el factor y los signos de la operación
+                  var factor = operacion.match(/^[0-9]*/)[0] || "1";
+                  var signo1 = operacion.match(/\(?([AB])/)[1];
+                  var signo2 = operacion.match(/(\+|\-)/)[1];
+                  var signo3 = operacion.match(/([AB])\)?/)[1];
+                  // Realizar la suma o resta según los signos
+                  var temp;
+                  if (signo2 == "+") {
+                      temp = (signo1 == "A" ? arregloA[i][j] : -arregloA[i][j]) + (signo3 == "A" ? arregloB[i][j] : -arregloB[i][j]);
+                  } else {
+                      temp = (signo1 == "A" ? arregloA[i][j] : -arregloA[i][j]) - (signo3 == "A" ? arregloB[i][j] : -arregloB[i][j]);
+                  }
+                  // Multiplicar el resultado por el factor
+                  resultado[i][j] = parseFloat(factor) * temp;
+          }
+      }
+  }
+  // Mostrar el resultado en el textarea
+  var textareaResultado = document.getElementById("resultado");
+  textareaResultado.value = "";
+  for (var i = 0; i < resultado.length; i++) {
+      textareaResultado.value += resultado[i].join(" ") + "\n";
+  }
+}
+
