@@ -350,41 +350,79 @@ dialog {
   margin-top: 5px;
 }
 
+/* CSS de la de ayuda del botón*/
+
+.step-help {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.column-help {
+  width: calc(50% - 30px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.column-help img {
+  max-width: 100%;
+}
+
+.column-help h3 {
+  margin-top: 10px;
+}
+
+.column-help p {
+  margin-top: 5px;
+}
+
 /* Media queries para tamaños de pantalla */
 
 /* Pantallas pequeñas (móviles) */
-@media only screen and (max-width: 767px) {
-}
+@media (min-width: 320px) and (max-width: 480px) {
+  /* CSS de la sección de ayuda */
+  .column {
+    width: calc(100% - 10px);
+  }
 
-/* Pantallas medianas (tablets) */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-}
+  /* CSS de la de ayuda del botón*/
 
-/* Pantallas grandes (laptops y pantallas más grandes) */
-@media only screen and (min-width: 1024px) {
+  .column-help {
+    width: calc(100% - 30px);
+  }
 }
+@media (min-width: 481px) and (max-width: 767px) {
+  /* CSS de la sección de ayuda */
+  .column {
+    width: calc(50% - 20px);
+  }
 
-@media screen and (max-width: 600px) {
-  footer {
-    display: none;
+  /* CSS de la de ayuda del botón*/
+
+  .column-help {
+    width: calc(100% - 30px);
   }
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   header {
     display: none;
   }
-}
+} */
 
-@media screen and (max-width: 670px) {
+/* @media screen and (max-width: 670px) {
   .tab-label {
     width: 100px;
 
     text-align: left;
   }
-}
+} */
 
-@media screen and (max-width: 420px) {
+/* @media screen and (max-width: 420px) {
   .tab-label {
     width: 50px;
   }
@@ -394,4 +432,4 @@ dialog {
   .tab-content {
     height: 55rem;
   }
-}
+} */
