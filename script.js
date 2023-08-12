@@ -35,10 +35,8 @@ function limpiarCampo() {
   for (var i = 0; i < camposTexto2.length; i++) {
     camposTexto2[i].value = ""; // Limpiar el contenido del campo de texto
   }
-    
-  document.getElementById("resultado").innerHTML = "";   
-  
-  
+
+  document.getElementById("resultado").innerHTML = "";
 }
 
 // Logica de operaciones
@@ -59,9 +57,6 @@ function ValidaSoloNumeros(event) {
     return false; // Prevenir la tecla
   }
 }
-
-
-
 
 // Función para convertir una cadena de texto en una matriz numérica
 function parseMatrix(matrixStr) {
@@ -314,29 +309,31 @@ function mostrar(resultado) {
     tabla += "</tr>";
   }
   tabla += "</table>";
-  
-let elemento = document.getElementById("resultado");
-elemento.innerHTML = tabla;
+
+  let elemento = document.getElementById("resultado");
+  elemento.innerHTML = tabla;
 }
 
 // Esta función se ejecuta cuando se hace clic en el botón "Calcular"
 function calcular() {
-// Se obtienen los valores de los elementos HTML con id "matrizA", "matrizB" y "operacion"
-let textoA = document.getElementById("matrixF").value;
-let textoB = document.getElementById("matrixG").value;
-let operacion = document.getElementById("operacion").value;
-// Se convierten los textos en matrices
-let matrizA = textoAMatriz(textoA);
-let matrizB = textoAMatriz(textoB);
-// Se valida que las matrices y la operación sean correctas
-let valido = validar(matrizA, matrizB, operacion);
-if (valido) {
-  // Se opera con las matrices y se obtiene el resultado
-  let resultado = operar(matrizA, matrizB, operacion);
-  // Se muestra el resultado en el elemento HTML con id "resultado"
-  mostrar(resultado);
-} else {
-  // Se muestra un mensaje de error en el elemento HTML con id "resultado"
-  alert("Los elementos introducidos no son validos, por favor revisa bien las matrices o la operación.");
-}
+  // Se obtienen los valores de los elementos HTML con id "matrizA", "matrizB" y "operacion"
+  let textoA = document.getElementById("matrixF").value;
+  let textoB = document.getElementById("matrixG").value;
+  let operacion = document.getElementById("operacion").value;
+  // Se convierten los textos en matrices
+  let matrizA = textoAMatriz(textoA);
+  let matrizB = textoAMatriz(textoB);
+  // Se valida que las matrices y la operación sean correctas
+  let valido = validar(matrizA, matrizB, operacion);
+  if (valido) {
+    // Se opera con las matrices y se obtiene el resultado
+    let resultado = operar(matrizA, matrizB, operacion);
+    // Se muestra el resultado en el elemento HTML con id "resultado"
+    mostrar(resultado);
+  } else {
+    // Se muestra un mensaje de error en el elemento HTML con id "resultado"
+    alert(
+      "Los elementos introducidos no son validos, por favor revisa bien las matrices o la operación."
+    );
+  }
 }

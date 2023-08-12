@@ -61,7 +61,12 @@
                   <button onclick="sumMatrix()">Sumar</button>
                   <button onclick="subtractMatrix()">Restar</button>
                   <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle-1" />
+                  <button
+                    onclick="window.open('./teorias/suma-resta.html', '_blank');"
+                  >
+                    Ver más
+                  </button>
+                  <input type="checkbox" id="toggle-1" class="checkbox" />
                   <label class="labelAyuda" for="toggle-1">Ayuda</label>
 
                   <dialog>
@@ -195,7 +200,12 @@
                 <div class="buttons">
                   <button onclick="multiplyMatrix()">Multiplicar</button>
                   <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle-2" />
+                  <button
+                    onclick="window.open('./teorias/multiplicacion.html', '_blank');"
+                  >
+                    Ver más
+                  </button>
+                  <input type="checkbox" id="toggle-2" class="checkbox" />
                   <label class="labelAyuda" for="toggle-2">Ayuda</label>
 
                   <dialog>
@@ -314,7 +324,12 @@
                 <div class="buttons">
                   <button onclick="transposeMatrix()">Transponer</button>
                   <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle-3" />
+                  <button
+                    onclick="window.open('./teorias/transpuesta.html', '_blank');"
+                  >
+                    Ver más
+                  </button>
+                  <input type="checkbox" id="toggle-3" class="checkbox" />
                   <label class="labelAyuda" for="toggle-3">Ayuda</label>
 
                   <dialog>
@@ -416,7 +431,11 @@
                 </div>
                 <div>
                   <h3>Operación</h3>
-                  <input class="inputOperacion" type="text" id="operacion" /><br />
+                  <input
+                    class="inputOperacion"
+                    type="text"
+                    id="operacion"
+                  /><br />
                 </div>
 
                 <div>
@@ -426,7 +445,12 @@
                 <div class="buttons">
                   <button onclick="calcular()">Operar</button>
                   <button onclick="limpiarCampo()">Limpiar todo</button>
-                  <input type="checkbox" id="toggle-4" />
+                  <button
+                    onclick="window.open('./teorias/incognitas.html', '_blank');"
+                  >
+                    Ver más
+                  </button>
+                  <input type="checkbox" id="toggle-4" class="checkbox" />
                   <label class="labelAyuda" for="toggle-4">Ayuda</label>
 
                   <dialog>
@@ -443,21 +467,21 @@
                           alt="Area de texto"
                         />
                         <p>
-                          Las áreas de texto son los espacios designados para escribir los
-                          valores de las matrices elemento por elemento, como el siguiente
-                          ejemplo:
+                          Las áreas de texto son los espacios designados para
+                          escribir los valores de las matrices elemento por
+                          elemento, como el siguiente ejemplo:
                         </p>
                         <img
                           src="./images/manual/ecuaciones con matrices/operacion.png"
                           alt="Area de texto"
                         />
                         <p>
-                          El campo "operación" es especialmente designado para escribir la
-                          operación que se desea realizar con las matrices escritas en los
-                          campos A y B.
+                          El campo "operación" es especialmente designado para
+                          escribir la operación que se desea realizar con las
+                          matrices escritas en los campos A y B.
                         </p>
                       </div>
-              
+
                       <div class="column-help">
                         <h3>Botones de acción</h3>
                         <img
@@ -465,9 +489,9 @@
                           alt="Transponer"
                         />
                         <p>
-                          En la sección de ecuaciones hay solo 1 botón de operación.
-                          Seleccione el botón de la operación de manera que pueda visualizar
-                          el resultado.
+                          En la sección de ecuaciones hay solo 1 botón de
+                          operación. Seleccione el botón de la operación de
+                          manera que pueda visualizar el resultado.
                         </p>
                         <br />
                         <img
@@ -475,11 +499,11 @@
                           alt="Limpiar todo"
                         />
                         <p>
-                          El botón "Limpiar todo" servirá para limpiar todos los campos de
-                          texto y poder hacer operaciones nuevamente.
+                          El botón "Limpiar todo" servirá para limpiar todos los
+                          campos de texto y poder hacer operaciones nuevamente.
                         </p>
                       </div>
-              
+
                       <div class="column-help">
                         <h3>Ejemplo</h3>
                         <img
@@ -487,8 +511,8 @@
                           alt="Area de texto"
                         />
                         <p>
-                          En este ejemplo se muestran las matrices A y B, una operación
-                          escrita y su resultado.
+                          En este ejemplo se muestran las matrices A y B, una
+                          operación escrita y su resultado.
                         </p>
                       </div>
                     </div>
@@ -520,6 +544,5 @@
     </footer>
 
     <script src="script.js"></script>
-    
   </body>
 </html>

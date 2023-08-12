@@ -127,13 +127,17 @@ textarea {
 
 button {
   border-radius: 10px;
+  border-top: 2px solid #545454;
+  border-left: 2px solid #545454;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
   color: none;
-  padding: 16px 32px;
+  padding: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-  margin: 4px 2px;
+  margin: 4px;
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: #bdc3c7;
@@ -281,19 +285,26 @@ button:active {
 
 .labelAyuda {
   border-radius: 10px;
-  color: black;
-  padding: 16px 32px;
+  border-top: 2px solid #545454;
+  border-left: 2px solid #545454;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  color: none;
+  padding: 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
+  font-size: 18px;
+  margin: 4px;
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: #bdc3c7;
   font: italic small-caps bold 16px/2 cursive;
 }
 
+.checkbox{
+  display: none;
+}
 .labelAyuda:hover {
   background-color: #16a085;
   color: white;
@@ -314,9 +325,9 @@ button:active {
 
 dialog {
   animation: appear 350ms ease-in 1;
-
   max-width: 800px;
   margin-top: -35rem;
+  margin-bottom: 30rem;
   border: 5px solid #16a085;
   border-radius: 50px;
 }
